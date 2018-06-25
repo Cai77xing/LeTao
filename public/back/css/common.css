@@ -1,0 +1,122 @@
+/*初始化一些不需要的样式*/
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+}
+
+ ul {
+   list-style: none;
+   padding: 0;
+   margin: 0;
+ }
+.red {
+  color: #A94442;
+}
+
+
+
+
+.lt_index .aside {
+  width: 180px;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: #222D32;
+  z-index:999;
+  transition:left 1s;
+}
+.aside.hidemeun {
+  left:-180px;
+}
+.aside .aside_title {
+  width: 180px;
+  height: 50px;
+  line-height:50px;
+  background-color: #367FA9;
+  text-align: center;
+}
+
+.aside .aside_title  a {
+  color: #fff;
+  font-size:22px;
+}
+.aside .user {
+  padding-top:30px;
+  /*宽高剩余法*/
+  height: 180px;
+  
+}
+
+.aside .user img {
+  width: 80px;
+  height: 80px;
+  display: block;
+  margin: 0 auto;
+  border-radius:50%;
+}
+.aside .user p {
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  font-size:20px;
+  color: #fff;
+}
+.aside_nav li a {
+  display: block;
+  height: 40px;
+  line-height:40px;
+  color: #fff;
+  padding-left:40px;
+  /*给a标签加3px的透明标签,*/
+  border-left:3px solid transparent;
+  
+}
+.aside_nav a.current {
+  border-left:3px solid #367FA9;
+  background-color:#1D1F21;;
+}
+.aside_nav .carteroy a {
+  padding-left:60px;
+}
+
+
+/*右边主体部分*/
+.main {
+  width: 100% ;
+  height: 1000px;
+  background-color: pink;
+  padding-left: 180px;
+  padding-top:50px;
+  transition:padding 1s;
+}
+.main.hidemeun {
+  padding-left:0px;
+}
+.main .main_title {
+  width: 100%;
+  height: 50px;
+  background-color: #3C8DBC;
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding-left: 180px;
+  transition:padding 1s;
+}
+.main_title.hidemeun {
+  padding-left:0px;
+}
+
+.main .main_title a {
+  width: 50px;
+  height: 50px;
+  color: #fff;
+  font-size:18px;
+  text-align: center;
+  line-height: 50px;
+}
+.main .breadcrumb {
+  margin-top:20px;
+}
