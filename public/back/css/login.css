@@ -1,0 +1,13 @@
+.lt_login {
+  background-color: #222D32;
+}
+.lt_login .panel-heading {
+  height: 50px;
+  line-height:50px;
+  font-size:20px;
+  padding: 0;
+  text-align: center;
+}
+.mr_t {
+  margin-top:150px;
+}
