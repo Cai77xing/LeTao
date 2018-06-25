@@ -2,9 +2,50 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>登录页</title>
+  <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="lib/bootstrap-validator/css/bootstrapValidator.min.css">
+  <link rel="stylesheet" href="css/login.css">
+
 </head>
-<body>
+<body class="lt_login">
+<div class="container">
+  <div class="mr_t col-lg-4 col-lg-offset-4">
+    <div class="panel panel-primary">
+      <div class="panel-heading">后台管理系统</div>
+      <div class="panel-body">
+        
+        <form class="form-horizontal" id="form">
+          <div class="form-group">
+            <label for="username"  class="col-sm-3 control-label">用户名:</label>
+            <div class="col-sm-9">
+              <input type="text" name="username" class="form-control" id="username" placeholder="请输入用户名">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password" class="col-sm-3 control-label">密　码:</label>
+            <div class="col-sm-9">
+              <input type="password" name="password" class="form-control" id="password" placeholder="请输入密码              ">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-6">
+              <button type="reset" class="btn btn-default pull-left">重置</button>
+              <button type="submit" class="btn btn-primary pull-right " id="loginBtn">登录</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script src="lib/jquery/jquery.min.js"></script>
+<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+<script src="js/login.js"></script>
 
 </body>
 </html>
