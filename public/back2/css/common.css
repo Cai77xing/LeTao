@@ -107,7 +107,6 @@ ul {
 .lt_main {
   width: 100%;
   height: 1000px;
-  background-color: pink;
   padding-left: 180px;
   padding-top: 50px;
   transition: all 1s;
@@ -141,4 +140,19 @@ ul {
 
 .lt_main .breadcrumb {
   margin-top: 20px;
+}
+
+
+.echarts_1,
+.echarts_2 {
+  width: 48%;
+  height: 400px;
+}
+
+/* 让所有的 th 和 td 都水平垂直居中 */
+.table.table-bordered th,
+.table.table-bordered td {
+  text-align: center;
+  /* 注意: 表格内容垂直居中 */
+  vertical-align: middle;
 }

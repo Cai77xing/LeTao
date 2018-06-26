@@ -14,7 +14,7 @@ if ( location.href.indexOf("login.html") === -1 ) {
     url: "/employee/checkRootLogin",
     dataType: "json",
     success: function( info ) {
-      console.log( info );
+      //console.log( info );
       if ( info.error === 400 ) {
         // 当前用户没登陆, 拦截到登陆页
         location.href = "login.html";
@@ -22,7 +22,7 @@ if ( location.href.indexOf("login.html") === -1 ) {
 
       if ( info.success ) {
         // 当前用户已登录, 不需要拦截, 啥事都不用干, 让用户访问页面
-        console.log( "当前用户已登陆" );
+        //console.log( "当前用户已登陆" );
       }
     }
   });
