@@ -55,11 +55,9 @@
         <li><a href="index.html">管理系统</a></li>
         <li class="active">用户管理</li>
       </ol>
-    </div>
-    
-    <!--主体的表格-->
-    <table class="table table-bordered table-hover">
-      <thead>
+      <!--主体的表格-->
+      <table class="table table-bordered table-hover">
+        <thead>
         <tr>
           <th width="10%">序号</th>
           <th width="20%">用户名</th>
@@ -67,16 +65,15 @@
           <th width="20%">状态</th>
           <th width="20%">操作</th>
         </tr>
-      </thead>
-      <tbody>
-       <!--填充数据-->
-      </tbody>
-    </table>
-    
-    <div class="text-right">
-      <ul class="pagination"></ul>
+        </thead>
+        <tbody>
+        <!--填充数据-->
+        </tbody>
+      </table>
+      <div class="text-right">
+        <ul class="pagination"></ul>
+      </div>
     </div>
-  
   </div>
 </div>
 
@@ -127,10 +124,10 @@
       <td>{{ v.mobile }}</td>
       <td>{{ v.isDelete===1?"正常":"禁用"}}</td>
       {{ if v.isDelete===1}}
-        <td data-id ={{v.id}}><button class="btn btn-danger">禁用</button></td>
+        <td data-id={{v.id}}><button class="btn btn-danger">禁用</button></td>
       {{ /if }}
       {{ if v.isDelete === 0}}
-        <td data-id ={{v.id}}><button class="btn btn-success">开启</button></td>
+        <td data-id={{v.id}}><button class="btn btn-success">开启</button></td>
       {{ /if }}
     </tr>
   {{ /each }}

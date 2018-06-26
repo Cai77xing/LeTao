@@ -1,7 +1,6 @@
 /**
  * Created by Jepson on 2018/6/26.
  */
-
 $(function() {
   var currentPage = 1; // 当前页
   var pageSize = 5; // 每页多少条
@@ -66,7 +65,7 @@ $(function() {
   });
 
 
-  // 点击确认按钮, 根据 id 和 isDelete 发送 ajax 请求, 修改用户状态
+  // 3. 点击确认按钮, 需要根据 id 和 isDelete 发送 ajax 请求, 修改用户状态
   $('#submitBtn').click(function() {
 
     console.log( "currentId:" + currentId );

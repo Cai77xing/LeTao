@@ -5,7 +5,9 @@
   <title>乐淘首页</title>
   <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="lib/bootstrap-validator/css/bootstrapValidator.min.css">
+  <!--分页样式-->
   <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/first.css">
 </head>
 <body>
 <div class="lt_index">
@@ -22,15 +24,15 @@
     </div>
     <!--导航模块-->
     <div class="aside_nav">
-      <ul >
-        <li >
+      <ul>
+        <li>
           <a href="user.html"><i class="glyphicon glyphicon-user"></i>&nbsp;<span>用户管理</span></a>
         </li>
         <li>
           <a href="#" class="cart"><i class="glyphicon glyphicon-list"></i>&nbsp;<span>分类管理</span></a>
-          <div class="carteroy" >
+          <div class="carteroy">
             <a class="current" href="first.html">一级分类</a>
-            <a href="second.html" >二级分类</a>
+            <a href="second.html">二级分类</a>
           </div>
         </li>
         <li>
@@ -45,7 +47,8 @@
     <!--主体的头部-->
     <div class="main_title">
       <a class="pull-left icon_meun" href="#"><i class="glyphicon glyphicon-align-justify"></i></a>
-      <a class="pull-right icon_logout" data-toggle="modal" data-target="#myModal" href="#"><i class="glyphicon glyphicon-log-out"></i></a>
+      <a class="pull-right icon_logout" data-toggle="modal" data-target="#myModal" href="#"><i
+          class="glyphicon glyphicon-log-out"></i></a>
     </div>
     <!--主体的导航-->
     <div class="container-fluid">
@@ -55,17 +58,37 @@
         <li class="active">分类管理</li>
         <li class="active">一级管理</li>
       </ol>
+      
+      <!--主体表格-->
+      <button class="btn btn-default addCart">添加分类</button>
+      <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+          <th width="20%">序号</th>
+          <th width="80%">一级分类名</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        </tbody>
+      </table>
     </div>
+    
+    <!--分页-->
+    <div class="text-right">
+      <ul class="pagination"></ul>
+    </div>
+  
   </div>
 </div>
 
 <!--模态框-->
 
-<div class="modal fade" id="myModal"  tabindex="-1">
+<div class="modal fade" id="myModal" tabindex="-1">
   <div class="modal-dialog  modal-sm">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" ><span >&times;</span></button>
+        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
         <h4 class="modal-title">温馨提示</h4>
       </div>
       <div class="modal-body">
@@ -78,10 +101,52 @@
     </div>
   </div>
 </div>
+
+<!--模态框-->
+<div class="modal fade" id="addModal" tabindex="-1">
+  <div class="modal-dialog  modal-sm">
+    <div class="modal-content">
+      <form id="form">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+          <h4 class="modal-title">添加分类</h4>
+        </div>
+        <div class="modal-body">
+          <!--注意:外面的form表单不要忘了-->
+          <div class="form-group">
+            <input type="text" class="form-control" name="categoryName" placeholder="请输入一级分类名称" >
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <!--表单插件提交按钮必须是submit-->
+          <button type="submit" class="btn btn-primary">添加</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<!--准备模板-->
+<script type="text/html" id="tpl">
+  {{ each rows v i }}
+  <tr>
+    <td>{{ i+1+(page-1)*size}}</td>
+    <td>{{ v.categoryName}}</td>
+  </tr>
+  {{ /each }}
+
+</script>
 <script src="lib/jquery/jquery.min.js"></script>
-<script src="lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+<!--引入模板插件-->
+<script src="lib/artTemplate/template-web.js"></script>
 <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
 <script src="lib/nprogress/nprogress.js"></script>
+<!--引入分页插件-->
+<script src="lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
 <script src="js/common.js"></script>
+<script src="js/first.js"></script>
 </body>
 </html>

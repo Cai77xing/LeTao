@@ -1,4 +1,6 @@
-
+.main .table {
+  margin-top:20px;
+}
 .table.table-bordered td,
 .table.table-bordered th {
   text-align: center;
