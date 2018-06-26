@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="lib/bootstrap-validator/css/bootstrapValidator.min.css">
   <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/second.css">
 </head>
 <body>
 <div class="lt_index">
@@ -22,13 +23,13 @@
     </div>
     <!--导航模块-->
     <div class="aside_nav">
-      <ul >
-        <li >
+      <ul>
+        <li>
           <a href="user.html"><i class="glyphicon glyphicon-user"></i>&nbsp;<span>用户管理</span></a>
         </li>
         <li>
           <a href="javascript:;" class="cart"><i class="glyphicon glyphicon-list"></i>&nbsp;<span>分类管理</span></a>
-          <div class="carteroy" >
+          <div class="carteroy">
             <a href="first.html">一级分类</a>
             <a class="current" href="second.html">二级分类</a>
           </div>
@@ -45,27 +46,45 @@
     <!--主体的头部-->
     <div class="main_title">
       <a class="pull-left icon_meun" href="#"><i class="glyphicon glyphicon-align-justify"></i></a>
-      <a class="pull-right icon_logout" data-toggle="modal" data-target="#myModal" href="#"><i class="glyphicon glyphicon-log-out"></i></a>
+      <a class="pull-right icon_logout" data-toggle="modal" data-target="#myModal" href="#"><i
+          class="glyphicon glyphicon-log-out"></i></a>
     </div>
     <!--主体的导航-->
     <div class="container-fluid">
-      
       <ol class="breadcrumb">
         <li><a href="index.html">管理系统</a></li>
         <li class="active">分类管理</li>
         <li class="active">二级分类</li>
       </ol>
+      <button class="btn addBtn btn-default">添加分类</button>
+      <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+          <th>序号</th>
+          <th>一级分类名</th>
+          <th>二级分类名</th>
+          <th>二级分类LOGO</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        </tbody>
+      </table>
+      
+      <!--分页功能-->
+      <div class="text-right">
+        <ul class="pagination"></ul>
+      </div>
     </div>
   </div>
 </div>
 
 <!--模态框-->
-
-<div class="modal fade" id="myModal"  tabindex="-1">
+<div class="modal fade" id="myModal" tabindex="-1">
   <div class="modal-dialog  modal-sm">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" ><span >&times;</span></button>
+        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
         <h4 class="modal-title">温馨提示</h4>
       </div>
       <div class="modal-body">
@@ -78,10 +97,85 @@
     </div>
   </div>
 </div>
+
+<!--模态框-->
+<div class="modal fade" id="addModal" tabindex="-1">
+  <div class="modal-dialog  modal-sm">
+    <div class="modal-content">
+      <form>
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+          <h4 class="modal-title">添加分类</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <div class="dropdown">
+              <button type="button" class="btn btn-default  dropdown-toggle" data-toggle="dropdown">
+                <span class="firBtn">添加一级分类</span>
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <!--动态渲染-->
+              </ul>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="brandName" placeholder="请输入二级分类">
+          </div>
+          <div class="form-group">
+            <!--上传图片只是按钮,应该是文件上传-->
+            <!--注意向让上传图片按钮和文件上传绑定在一块,所以使用label,但注意一个label只能包含一个input-->
+            <label class="btn btn-default imgBtn">上传图片
+              <input type="file" id="fileUpload" name="pic1" data-url="/category/addSecondCategoryPic" style="display:none">
+            </label>
+          </div>
+          <div class="form-group">
+            <img class="imgBox" src="images/none.png" width="100" height="100">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button type="submit" class="btn btn-primary ">添加</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<!--模板引擎-->
+<script type="text/html" id="tpl">
+  {{ each rows v i}}
+  <tr>
+    <td>{{ i+1+(page-1)*size}}</td>
+    <td>{{ v.categoryName }}</td>
+    <td>{{ v.brandName }}</td>
+    <td><img src="{{ v.brandLogo }}" height="50"></td>
+  </tr>
+  {{ /each }}
+</script>
+
+<!--一级分类模板引擎-->
+<script type="text/html" id="tplfirst">
+  {{ each rows v i}}
+  <li><a class="cateName" href="#">{{ v.categoryName }}</a></li>
+  {{ /each }}
+</script>
+
+
 <script src="lib/jquery/jquery.min.js"></script>
 <script src="lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
 <script src="lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="lib/nprogress/nprogress.js"></script>
+<!--引入模板引擎-->
+<script src="lib/artTemplate/template-web.js"></script>
+<!--引入分页插件-->
+<script src="lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+<!--图片上传插件-->
+<script src="./lib/jquery-fileupload/jquery.ui.widget.js"></script>
+<script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>
+
 <script src="js/common.js"></script>
+<script src="js/second.js"></script>
 </body>
 </html>
