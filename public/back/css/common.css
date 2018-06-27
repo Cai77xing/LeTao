@@ -118,3 +118,12 @@ a:active {
 .main .breadcrumb {
   margin-top:20px;
 }
+
+.main .table {
+  margin-top:20px;
+}
+.table.table-bordered td,
+.table.table-bordered th {
+  text-align: center;
+  vertical-align: middle;
+}
