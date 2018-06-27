@@ -102,7 +102,7 @@
 <div class="modal fade" id="addModal" tabindex="-1">
   <div class="modal-dialog  modal-sm">
     <div class="modal-content">
-      <form>
+      <form id="form">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
           <h4 class="modal-title">添加分类</h4>
@@ -114,10 +114,13 @@
                 <span class="firBtn">添加一级分类</span>
                 <span class="caret"></span>
               </button>
+              <!--因为选择一级分类，和上传图片按钮都不是input表单，所以上次不了该内容，添加一个隐藏域-->
               <ul class="dropdown-menu">
                 <!--动态渲染-->
               </ul>
             </div>
+            <input type="hidden" name="categoryId">
+            <input type="hidden" name="hot" value="1">
           </div>
           <div class="form-group">
             <input type="text" class="form-control" name="brandName" placeholder="请输入二级分类">
@@ -131,11 +134,12 @@
           </div>
           <div class="form-group">
             <img class="imgBox" src="images/none.png" width="100" height="100">
+            <input type="hidden" name="brandLogo">
           </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-          <button type="submit" class="btn btn-primary ">添加</button>
+          <button type="submit" class="btn btn-primary">添加</button>
         </div>
       </form>
     </div>
@@ -158,7 +162,7 @@
 <!--一级分类模板引擎-->
 <script type="text/html" id="tplfirst">
   {{ each rows v i}}
-  <li><a class="cateName" href="#">{{ v.categoryName }}</a></li>
+  <li ><a data-id={{v.id}} class="cateName" href="#">{{ v.categoryName }}</a></li>
   {{ /each }}
 </script>
 
