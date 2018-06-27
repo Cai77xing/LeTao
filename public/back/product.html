@@ -101,9 +101,9 @@
 
 <!--添加商品模态框-->
 <div class="modal fade" id="addMoal" tabindex="-1">
-  <div class="modal-dialog  modal-sm">
+  <div class="modal-dialog  modal-md">
     <div class="modal-content">
-      <form>
+      <form id="form">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
           <h4 class="modal-title">添加分类</h4>
@@ -131,7 +131,7 @@
             <textarea name="proDesc" class="form-control" placeholder="请输入商品描述"></textarea>
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" class="num" placeholder="请输入商品的库存">
+            <input type="text" class="form-control" name="num" placeholder="请输入商品的库存">
           </div>
           <div class="form-group">
             <input type="text" class="form-control" name="size" placeholder="请输入商品的尺码(32-46)">
@@ -144,8 +144,10 @@
           </div>
           <div class="form-group">
             <label class="btn btn-default">上传图片
-              <input type="text">
+              <!--多文件上传-->
+              <input type="file" name="pic1" data-url="/category/addSecondCategoryPic" id="fileupload" multiple style="display:none">
             </label>
+            <input type="hidden" class="brandLogo">
           </div>
         
         </div>
@@ -184,11 +186,14 @@
 <script src="lib/jquery/jquery.min.js"></script>
 <!--模板引擎插件-->
 <script src="lib/artTemplate/template-web.js"></script>
-<script src="lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
 <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
 <script src="lib/nprogress/nprogress.js"></script>
 <!--分页插件-->
 <script src="lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+<!--图片上传插件-->
+<script src="lib/jquery-fileupload/jquery.ui.widget.js"></script>
+<script src="lib/jquery-fileupload/jquery.fileupload.js"></script>
 <script src="js/common.js"></script>
 <script src="js/product.js"></script>
 </body>
