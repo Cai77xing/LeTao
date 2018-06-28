@@ -1,0 +1,31 @@
+.main_left {
+  width: 90px;
+  height: 100%;
+  float: left;
+  /*区域滚动scroll的父盒子加定位*/
+  position: relative;
+}
+
+.main_left ul li a {
+  display: block;
+  width: 90px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  border-right:1px solid #ccc;
+  background-color: #E3E4E5;
+  color: #666;
+}
+
+.main_left ul li a.current {
+  background-color: #fff;
+  border-right:none;
+}
+.main_content {
+  overflow: hidden;
+  height: 100%;
+  background-color: green;
+  /*区域滚动的父盒子加定位*/
+  /*position: relative;*/
+}
