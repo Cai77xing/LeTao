@@ -1,0 +1,39 @@
+.main_nav {
+  padding: 10px;
+}
+.main_nav li {
+  float: left;
+  width: 33%;
+
+}
+.main_nav li a {
+  display: block;
+  
+}
+.main_content {
+  padding:10px;
+}
+.main_content li {
+  float: left;
+  width: 48% ;
+  background-color: #fff;
+  border:1px solid #ccc;
+  border-radius:5px;
+  text-align: center;
+  margin-bottom:10px;
+}
+.main_content li:nth-child(even) {
+  float: right;
+}
+.main_content li a {
+  display: block;
+  padding:10px;
+}
+.main_content .price {
+  color: red;
+  font-weight:bold;
+}
+.main_content .oldPrice {
+  text-decoration: line-through;
+  font-weight:lighter;
+}
