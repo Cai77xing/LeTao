@@ -114,6 +114,7 @@
           <div class="form-group">
             <input type="text" class="form-control" name="brandName" placeholder="请输入二级分类">
           </div>
+
           <div class="form-group">
             <label class="btn btn-default" for="fileupload">上传图片</label>
             <!-- name: 后台需要通过 name 来获取图片进行转存 -->
@@ -121,10 +122,12 @@
 
             <input type="file" name="pic1" data-url="/category/addSecondCategoryPic" id="fileupload" style="display: none;">
           </div>
+
           <div class="form-group" id="imgBox">
             <img src="./images/none.png" width="100" height="100">
             <input type="hidden" name="brandLogo">
           </div>
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>

@@ -77,7 +77,7 @@ $(function() {
   // 4. 注册表单校验成功事件, 阻止默认成功的提交, 通过 ajax 进行提交
   $('#form').on("success.form.bv", function( e ) {
     e.preventDefault();
-    console.log($('#form').serialize());
+
     // 通过 ajax 提交
     $.ajax({
       type: "post",
@@ -91,7 +91,8 @@ $(function() {
           // 1. 关闭模态框
           $('#addModal').modal("hide");
           // 2. 重新渲染页面, 渲染第一页最合适
-         
+          currentPage = 1;
+          render();
 
           // 3. 重置模态框的表单, 传 true 不仅重置校验状态, 还重置表单内容
           $('#form').data("bootstrapValidator").resetForm( true );

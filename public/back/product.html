@@ -59,13 +59,13 @@
       <table class="table table-bordered table-hover">
         <thead>
         <tr>
-          <th>序号</th>
-          <th>商品名称</th>
-          <th>商品描述</th>
-          <th>商品库存</th>
-          <th>商品尺寸</th>
-          <th>商品状态</th>
-          <th>操作</th>
+          <th width="10%">序号</th>
+          <th width="25%">商品名称</th>
+          <th width="25%">商品描述</th>
+          <th width="10%">商品库存</th>
+          <th width="10%">商品尺寸</th>
+          <th width="10%">商品状态</th>
+          <th width="10%">操作</th>
         </tr>
         </thead>
         <tbody>
@@ -101,7 +101,8 @@
 
 <!--添加商品模态框-->
 <div class="modal fade" id="addMoal" tabindex="-1">
-  <div class="modal-dialog  modal-md">
+  <!--模态框只有大号和小号,默认是中号-->
+  <div class="modal-dialog ">
     <div class="modal-content">
       <form id="form">
         <div class="modal-header">
@@ -121,14 +122,15 @@
               
               </ul>
             </div>
-            <input type="text" class="secondId">
+            <input type="hidden" name="brandId">
+            <input type="hidden" name="statu" value="1">
           
           </div>
           <div class="form-group">
             <input type="text" class="form-control" name="proName" placeholder="请输入商品的名称">
           </div>
           <div class="form-group">
-            <textarea name="proDesc" class="form-control" placeholder="请输入商品描述"></textarea>
+            <textarea name="proDesc" class="form-control" placeholder="请输入商品描述" rows="5"></textarea>
           </div>
           <div class="form-group">
             <input type="text" class="form-control" name="num" placeholder="请输入商品的库存">
@@ -145,9 +147,12 @@
           <div class="form-group">
             <label class="btn btn-default">上传图片
               <!--多文件上传-->
-              <input type="file" name="pic1" data-url="/category/addSecondCategoryPic" id="fileupload" multiple style="display:none">
+              <input type="file" name="pic1" data-url="/product/addProductPic" id="fileupload" multiple style="display:none">
             </label>
-            <input type="hidden" class="brandLogo">
+          </div>
+          <div class="form-group" id="imgBox">
+            
+            <input type="text" name="picStatus">
           </div>
         
         </div>
@@ -169,8 +174,15 @@
     <td>{{ v.proDesc}}</td>
     <td>{{ v.num}}</td>
     <td>{{ v.size}}</td>
-    <td>{{ v.statu }}</td>
-    <td>{{ v.brandId }}</td>
+    <td>{{ v.statu===1?"已上架":"下架" }}</td>
+    <td>
+      {{ if v.statu===1 }}
+        <button class="btn btn-danger">下架</button>
+      {{ /if }}
+      {{ if v.statu===0}}
+        <button class="btn btn-success">上架</button>
+      {{ /if }}
+    </td>
   </tr>
   {{ /each }}
 
@@ -187,7 +199,8 @@
 <!--模板引擎插件-->
 <script src="lib/artTemplate/template-web.js"></script>
 <script src="lib/bootstrap/js/bootstrap.min.js"></script>
-<script src="lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+<!--表单校验-->
+<script src="lib/bootstrap-validator/js/bootstrapValidator.js"></script>
 <script src="lib/nprogress/nprogress.js"></script>
 <!--分页插件-->
 <script src="lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>

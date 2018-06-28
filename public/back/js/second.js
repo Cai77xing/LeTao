@@ -66,7 +66,8 @@
   $('#fileUpload').fileupload({
     dataType: "json",
     done: function (E, data) {
-      $(".imgBox").attr("src", data.result.picAddr);
+      $(".imgBox").attr("" +
+        "", data.result.picAddr);
       $('[name="brandLogo"]').val(data.result.picAddr);
       $('#form').data("bootstrapValidator").updateStatus("brandLogo", "VALID");
     }
