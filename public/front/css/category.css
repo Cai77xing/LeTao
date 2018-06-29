@@ -25,7 +25,25 @@
 .main_content {
   overflow: hidden;
   height: 100%;
-  background-color: green;
   /*区域滚动的父盒子加定位*/
-  /*position: relative;*/
+  position: relative;
+}
+.main_content ul {
+  padding:10px;
+}
+.main_content ul li {
+  float: left;
+  width: 33%;
+  
+}
+.main_content ul li a {
+  display: block;
+}
+.main_content ul li  img {
+  width: 70px;
+  height: 50px;
+  margin: 0 auto;
+}
+.main_content ul li  p {
+  text-align: center;
 }

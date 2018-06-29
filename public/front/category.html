@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>乐淘电商</title>
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="lib/mui/css/mui.min.css">
   <link rel="stylesheet" href="lib/fa/css/font-awesome.css">
   <link rel="icon" href="favicon.ico">
@@ -27,26 +28,28 @@
     </a>
   </div>
   
- <!--乐淘主体部分-->
+  <!--乐淘主体部分-->
   <div class="lt_main">
     <div class="main_left">
-      <ul>
-        <li><a href="#">运动馆</a></li>
-        <li><a href="#">运动馆</a></li>
-        <li><a href="#">运动馆</a></li>
-        <li><a href="#">运动馆</a></li>
-        <li><a href="#">运动馆</a></li>
-        <li><a href="#">运动馆</a></li>
-        <li><a href="#">运动馆</a></li>
-        <li><a href="#">运动馆</a></li>
-        <li><a href="#">运动馆</a></li>
-        <li><a href="#">运动馆</a></li>
-        <li><a href="#">运动馆</a></li>
-      </ul>
+      <div class="mui-scroll-wrapper">
+        <div class="mui-scroll">
+          <ul class="cateLeft">
+          
+          </ul>
+        </div>
+      </div>
     </div>
-    <!--<div class="main_content">-->
-    <!---->
-    <!--</div>-->
+    
+    <div class="main_content">
+      <div class="mui-scroll-wrapper">
+        <div class="mui-scroll">
+          <ul class="infoCate mui-clearfix">
+          
+          
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
   
   <!--乐淘底部-->
@@ -69,21 +72,46 @@
           <i class="fa fa-shopping-cart"></i>
           <p>购物车</p>
         </a>
-      </li>  <li>
-      <a href="index.html">
-        <i class="fa fa-user"></i>
-        <p>会员中心</p>
-      </a>
-    </li>
+      </li>
+      <li>
+        <a href="index.html">
+          <i class="fa fa-user"></i>
+          <p>会员中心</p>
+        </a>
+      </li>
     
     </ul>
   </div>
 </div>
 
+<!--模板-->
+<script type="text/html" id="tplLeft">
+  {{ each rows v i}}
+    <li ><a class="secondCate {{ i === 0 ? 'current' : '' }}" data-id={{ v.id }} href="#">{{ v.categoryName }}</a></li>
+  {{ /each }}
+</script>
+
+<!--详细信息模板-->
+<script type="text/html" id="infoTpl">
+  {{ if rows.length === 0}}
+  <p>没有更多的分类信息了</p>
+  {{ else }}
+    {{ each rows v i}}
+         <li data-id={{ v.id }}>
+          <a href="#">
+            <img src="{{ v.brandLogo}}" alt="">
+            <p>{{ v.brandName }}</p>
+          </a>
+         </li>
+    {{ /each }}
+  {{ /if }}
+</script>
 <!--引包-->
 <script src="lib/zepto/zepto.min.js"></script>
 <script src="lib/mui/js/mui.js"></script>
+<script src="lib/artTemplate/template-web.js"></script>
 <script src="js/common.js"></script>
+<script src="js/category.js"></script>
 
 </body>
 </html>

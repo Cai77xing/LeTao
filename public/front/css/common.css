@@ -18,6 +18,8 @@ html,body {
   padding-top: 45px;
   padding-bottom:55px;
   overflow: hidden;
+  background-color: #fff;
+  
 }
 .lt_header {
   height: 45px;
